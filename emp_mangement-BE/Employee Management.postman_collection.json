@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "f340a640-b8a9-49e4-90e1-a3e1fad063ff",
+		"name": "Employee Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Departmnet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/getAllDepartment",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"getAllDepartment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\":\"sabc\",\r\n    \"last_name\":\"def\",\r\n    \"designation\":\"anjdfb\",\r\n    \"email\":\"test5@io.com\",\r\n    \"dob\":\"27/08/1999\",\r\n    \"address\":\"add\",\r\n    \"department\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/AddEmployee",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"AddEmployee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Employee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"Id\": 5,\r\n        \"first_name\": \"sadbc\",\r\n        \"last_name\": \"def\",\r\n        \"designation\": \"anjdfb\",\r\n        \"email\": \"test5@io.com\",\r\n        \"address\": \"add\",\r\n        \"department\": 1,\r\n        \"isdeleted\": \"0\",\r\n        \"updatedAt\": \"2021-06-07T08:24:05.698Z\",\r\n        \"createdAt\": \"2021-06-07T08:24:05.698Z\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/updateEmployee",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"updateEmployee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Employee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/deleteEmployee",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"deleteEmployee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Employee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/getAllEmployee",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"getAllEmployee"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
