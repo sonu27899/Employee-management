@@ -1,0 +1,96 @@
+
+<div style="width:500px;">
+  <h2>{{page_title}}</h2>
+
+<form (ngSubmit)="submitForm()" #f1="ngForm">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" matInput placeholder="Enter First Name" #f_name="ngModel" class="form-control" name="first_name" [(ngModel)]="first_name" (keypress)="keyPressText($event)" required/>
+    <div class="invalid">
+      <span *ngIf="f_name.errors && (f_name.invalid && f_name.touched) && f_name.errors.required">
+        First Name is required.
+      </span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" matInput placeholder="Enter Last Name" #l_name="ngModel" class="form-control" name="last_name" [(ngModel)]="last_name" (keypress)="keyPressText2($event)" required/>
+    <div class="invalid">
+      <span *ngIf="l_name.errors && (l_name.invalid && l_name.touched) && l_name.errors.required">
+        Last Name is required.
+      </span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="designation">Designation</label>
+    <input type="text" matInput placeholder="Enter Designation" #e_designation="ngModel" class="form-control" name="designation" [(ngModel)]="designation" required/>
+    <div class="invalid">
+      <span *ngIf="e_designation.errors && (e_designation.invalid && e_designation.touched) && e_designation.errors.required">
+        Designation is required.
+      </span>
+    </div>
+
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" matInput placeholder="Enter Email" #e_email="ngModel"  class="form-control" name="email" [(ngModel)]="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
+    <div class="invalid">
+      <span *ngIf="e_email.errors && (e_email.invalid || e_email.touched) && e_email.errors.pattern">please
+        enter a valid email address.
+      </span>
+      <span *ngIf="e_email.errors && (e_email.invalid && e_email.touched) && e_email.errors.required">
+        email is required.
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group">
+
+
+    <label for="dob">Date Of Birth</label>
+    <input type="date" matInput   placeholder="Enter Date Of Birth" #e_dob="ngModel" class="form-control" name="dob" [(ngModel)]="dob" required/>
+
+    <div class="invalid">
+
+      <span *ngIf="e_dob.errors && (e_dob.invalid && e_dob.touched) && e_dob.errors.required">
+        Date Of Birth is required.
+      </span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="address">Address</label>
+    <textarea placeholder="Enter Address" #e_address="ngModel" type="text" class="form-control" row="10" cols="10" name="addreess" [(ngModel)]="address" required>
+
+    </textarea>
+    <div class="invalid">
+
+      <span *ngIf="e_address.errors && (e_address.invalid && e_address.touched) && e_address.errors.required">
+        Address is required.
+      </span>
+    </div>
+
+
+  </div>
+  <div class="form-group">
+    <label for="department">Department</label>
+    <select  placeholder="Enter Department" class="form-control" name="department" [(ngModel)]="department" #e_department="ngModel" required>
+      <option class="select-first" value='0'>select Department</option>
+      <option *ngFor="let options of designation_arr" [value]="options.Id">
+        {{options.name}} </option>
+    </select>
+
+    <div class="invalid">
+
+      <span *ngIf="e_department.errors && (e_department.invalid && e_department.touched) && e_department.errors.required">
+        Department is required.
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button [disabled]="!f1.valid || department==0" class="btn btn-primary" (click)="onSubmit()">{{button_title}}</button>
+
+    <a class="btn btn-link" (click)="onclose()">Cancel</a>
+  </div>
+</form>
+</div>
